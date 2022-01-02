@@ -1,0 +1,51 @@
+append variables
+  -
+    var news= [
+      {
+        date:'17 ታህሳስ, 2014',
+        category:'በዐል',
+        title  :'እንኳን አደረሰን እንኳንም ደስ አለን!',
+        text:'እንደኛ ብርታትና ትጋት ሳይሆን እንደቅዱስ አማኑኤል ቸርነት ማኅበራችን ልጅነቱን ጨርሶ የዓመት ጎረምሳ ሆነልን...።በጥቂት ዲያቆናት በልጅነት የተመሠረተው ማኅበራችን ልጅነቱን ጨረሰ...።18 የብርቱ ወጣት ዕድሜ ነው፤ ልጅነት የሚበቃበት፤ ራዕይ ሚሰነቅበት፤ ጡንቻ ሚጠነክርበት፤ ጉልበት ሚበረታበት...። አማኑኤል ይክበር ይመስገን። አሁን ጎርምሰናል እስካሁን ከክፉ ጠብቆ ያቆየንን ይዘን ለቤተ ክርስትያን ብዙ እንሰራለን። እስኪ ይህን ልደታችንን በቃለ እግዚአብሔር ኑ አብረን እናክብር! በደብረገሊላ ቅዱስ አማኑኤል ቤ/ክ ጻድቃን ሰንበቴ አዳራሽ እሁድ በ4 ሰዓት ስለቤተክርስትያን ብላችሁ አትቅሩብን። ማኅበረ አማኑኤል ዘዲያቆናት የተቸገሩ አብያተ ክርስትያናት መርጃ!',
+      },
+      {
+        date:'19 መስከረም, 2014',
+        category:'መክፈቻ',
+        title :'ንዋየ ቅድሳት መሸጫ ሱቅ መክፈቻ',
+        text:`✝ የቅዱሳን ስዕላት(ፍሬሞች)✝ ማንኛውም ቅድሳት መጻሕፍት ✝ ጧፍ ✝ እጣን ✝ ዘቢብ ✝ የሙሽራ ካባ ኪራይ(ተክሊል)✝ ሻማ ✝መቅረዝ ✝ቅብሃ ቅዱስ ቀድመው ይዘዙን አዘጋጅተን እንጠብቆታለን!የተቸገሩ አቢያተ ክርሰቲያናትን ይርዱ ከበረከቱ ይሳተፉ! አድራሻ:- ደ/ገ/ቅዱስ አማኑኤል ቤ/ክ አቢሲኒያ ባንክ ስር - የማኅበረ አማኑኤል ዘዲያቆናት ንዋየ ቅድሳት መሸጫ ሱቅ ያገኙናል።`,
+      },
+      {
+        date:'29 ነሀሴ, 2014',
+        category:'መርሀ ግብር',
+        title  :'የነዳያን ጾም ማስፈሰክ መርሀ ግብር',
+        text:'ከ900 በላይ የነዳያን ጾም ማስፈሰክ መርሀ ግብር ለዘንድሮ በጣም ደስ በሚል ሁኔታ፣በእናንተም መልካም ትብብር አድርገናል። ቅዱስ አማኑኤል የዓመት ሰው ይበለን እና በቀጣይ ዓመት በመልካም ያገናኘን!', 
+      },
+      
+    ];
+
+mixin NewsCard(config)
+  .col-md-6.col-lg-4.mb-4
+    .card.p-3.h-100.card-soft-primary
+      .card-body
+        .d-flex.flex-between-center
+          p.fw-normal.mb-0.text-400=config.date
+          h6
+            span.badge.rounded-pill.text-primary(style="background:#224E8F;")=config.category
+        h5.fw-bold.fs-2.text-200.my-3=config.title
+        p.text-400=config.text
+        a.link-primary(href='#!') 
+          svg.bi.bi-arrow-right.text-primary(xmlns='http://www.w3.org/2000/svg' width='21' height='21' fill='currentColor' viewBox='0 0 16 16')
+            path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
+       
+mixin RcentNews 
+  +Section#news
+    .row
+      h2.text-light.text-center.my-5 የቅርብ ጊዜ ዜናዎች
+    .row.flex-center.h-100.circle-blend.circle-blend-left.circle-primary
+      .col-12
+        .row.align-items-center.circle-blend.circle-blend-right.circle-warning
+          each item in news
+            +NewsCard(item)
+        .my-5.text-center.text-sm-end
+          a.link-primary(href='#!') View all 
+            svg.bi.bi-arrow-right(xmlns='http://www.w3.org/2000/svg' width='21' height='21' fill='currentColor' viewBox='0 0 16 16')
+              path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')     
